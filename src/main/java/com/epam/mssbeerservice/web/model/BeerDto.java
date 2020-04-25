@@ -1,6 +1,8 @@
 package com.epam.mssbeerservice.web.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +27,7 @@ public class BeerDto {
     private Integer version;
 
     @Null
+
     private OffsetDateTime createdDate;
     @Null
     private OffsetDateTime lastModifiedDate;
@@ -33,12 +36,12 @@ public class BeerDto {
     private String beerName;
     private BeerStyleEnum beerStyle;
 
-    @Positive
     @NotNull
-    private Long upc;
+    private String upc;
 
     @Positive
     @NotNull
+    @JsonFormat(shape= JsonFormat.Shape.STRING)
     private BigDecimal price;
 
     private Integer quantityOnHand;
